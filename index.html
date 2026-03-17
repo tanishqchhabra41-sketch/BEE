@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BEE Transformer Project</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:Segoe UI; }
+
+body {
+  background: radial-gradient(circle at top, #0a0f2c, #000);
+  color: white;
+}
+
+/* Slides */
+.slide {
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 { color: cyan; margin-bottom: 15px; }
+
+p { max-width: 700px; line-height: 1.6; }
+
+/* Navigation */
+.nav {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: cyan;
+  color: black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Progress bar */
+#progress {
+  position: fixed;
+  top: 0;
+  height: 5px;
+  background: cyan;
+  width: 0%;
+}
+
+/* Animated current flow */
+.wire {
+  width: 200px;
+  height: 4px;
+  background: #222;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.current {
+  width: 40px;
+  height: 4px;
+  background: cyan;
+  position: absolute;
+  animation: flow 1s linear infinite;
+}
+
+@keyframes flow {
+  from { left: -40px; }
+  to { left: 200px; }
+}
+
+/* Diagram image */
+img {
+  width: 250px;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<!-- Sound -->
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+
+<div class="slide">
+  <h1>Transformer Concepts</h1>
+  <p>On Load, No Load & Auto Transformer</p>
+</div>
+
+<div class="slide">
+  <h1>Introduction</h1>
+  <p>Transformer transfers electrical energy using electromagnetic induction.</p>
+</div>
+
+<div class="slide">
+  <h1>No Load Condition</h1>
+  <p>Only no-load current flows in primary.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Transformer_no_load.svg">
+</div>
+
+<div class="slide">
+  <h1>No Load Current</h1>
+  <p>I₀ = Iₘ + Iw</p>
+</div>
+
+<div class="slide">
+  <h1>No Load Losses</h1>
+  <p>Hysteresis & Eddy current losses</p>
+</div>
+
+<div class="slide">
+  <h1>On Load Condition</h1>
+  <p>Current flows in both windings</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Transformer_on_load.svg">
+
+  <!-- Animated flow -->
+  <div class="wire">
+    <div class="current"></div>
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Current Relation</h1>
+  <p>I₁ / I₂ = N₂ / N₁</p>
+</div>
+
+<div class="slide">
+  <h1>Losses on Load</h1>
+  <p>Total Loss = Core Loss + Copper Loss</p>
+
+  <!-- Animated flow -->
+  <div class="wire">
+    <div class="current"></div>
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Auto Transformer</h1>
+  <p>Single winding transformer</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Autotransformer.svg">
+</div>
+
+<div class="slide">
+  <h1>Copper Saving</h1>
+  <p>(1 − V₂/V₁) × 100%</p>
+</div>
+
+<div class="nav">
+  <button onclick="prevSlide()">⬅ Prev</button>
+  <button onclick="nextSlide()">Next ➡</button>
+</div>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+let sound = document.getElementById("clickSound");
+
+function showSlide(i) {
+  slides.forEach((s, idx) => {
+    s.style.display = (idx === i) ? "flex" : "none";
+  });
+
+  document.getElementById("progress").style.width =
+    ((i+1)/slides.length)*100 + "%";
+}
+
+function nextSlide() {
+  if(index < slides.length-1) index++;
+  sound.play();
+  showSlide(index);
+}
+
+function prevSlide() {
+  if(index > 0) index--;
+  sound.play();
+  showSlide(index);
+}
+
+showSlide(index);
+</script>
+
+</body>
+</html>
