@@ -2,192 +2,243 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BEE Transformer Project</title>
+<title>BEE PPT Website</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Segoe UI; }
-
 body {
-  background: radial-gradient(circle at top, #0a0f2c, #000);
-  color: white;
+  margin:0;
+  font-family: Calibri, sans-serif;
+  background:#111;
+  color:#fff;
+  overflow:hidden;
 }
 
-/* Slides */
+/* Slide container */
 .slide {
-  height: 100vh;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
+  width:100vw;
+  height:100vh;
+  display:none;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:60px;
+  background:linear-gradient(135deg,#0a0f2c,#1a1a40);
 }
 
-h1 { color: cyan; margin-bottom: 15px; }
+/* Title */
+.title {
+  font-size:40px;
+  font-weight:bold;
+  color:#00e6e6;
+}
 
-p { max-width: 700px; line-height: 1.6; }
+/* Content */
+.content {
+  font-size:22px;
+  line-height:1.6;
+  margin-top:20px;
+}
 
-/* Navigation */
+/* Footer */
+.footer {
+  font-size:14px;
+  opacity:0.7;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* Buttons */
 .nav {
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
+  position:fixed;
+  bottom:20px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 30px;
 }
 
 button {
-  padding: 10px 20px;
-  border: none;
-  background: cyan;
-  color: black;
-  border-radius: 20px;
-  cursor: pointer;
+  padding:10px 18px;
+  border:none;
+  border-radius:5px;
+  background:#00e6e6;
+  color:#000;
+  cursor:pointer;
 }
 
-/* Progress bar */
-#progress {
-  position: fixed;
-  top: 0;
-  height: 5px;
-  background: cyan;
-  width: 0%;
-}
-
-/* Animated current flow */
-.wire {
-  width: 200px;
-  height: 4px;
-  background: #222;
-  margin-top: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.current {
-  width: 40px;
-  height: 4px;
-  background: cyan;
-  position: absolute;
-  animation: flow 1s linear infinite;
-}
-
-@keyframes flow {
-  from { left: -40px; }
-  to { left: 200px; }
-}
-
-/* Diagram image */
 img {
-  width: 250px;
-  margin-top: 20px;
+  width:300px;
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="progress"></div>
-
-<!-- Sound -->
-<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
-
+<!-- Slide 1 -->
 <div class="slide">
-  <h1>Transformer Concepts</h1>
-  <p>On Load, No Load & Auto Transformer</p>
-</div>
+  <div>
+    <div class="title">Transformer Concepts</div>
+    <div class="content">
+      On Load, No Load & Auto Transformer<br><br>
 
-<div class="slide">
-  <h1>Introduction</h1>
-  <p>Transformer transfers electrical energy using electromagnetic induction.</p>
-</div>
-
-<div class="slide">
-  <h1>No Load Condition</h1>
-  <p>Only no-load current flows in primary.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Transformer_no_load.svg">
-</div>
-
-<div class="slide">
-  <h1>No Load Current</h1>
-  <p>I₀ = Iₘ + Iw</p>
-</div>
-
-<div class="slide">
-  <h1>No Load Losses</h1>
-  <p>Hysteresis & Eddy current losses</p>
-</div>
-
-<div class="slide">
-  <h1>On Load Condition</h1>
-  <p>Current flows in both windings</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Transformer_on_load.svg">
-
-  <!-- Animated flow -->
-  <div class="wire">
-    <div class="current"></div>
+      <b>Team Name:</b> Your Team<br>
+      <b>Team Members:</b> Name1, Name2<br>
+      <b>Class:</b> Your Class<br>
+      <b>Section:</b> Your Section<br>
+      <b>Professor:</b> Prof. Name
+    </div>
   </div>
+  <div class="footer">BEE Project</div>
 </div>
 
+<!-- Slide 2 -->
 <div class="slide">
-  <h1>Current Relation</h1>
-  <p>I₁ / I₂ = N₂ / N₁</p>
-</div>
-
-<div class="slide">
-  <h1>Losses on Load</h1>
-  <p>Total Loss = Core Loss + Copper Loss</p>
-
-  <!-- Animated flow -->
-  <div class="wire">
-    <div class="current"></div>
+  <div>
+    <div class="title">Introduction</div>
+    <div class="content">
+      A transformer is a static electrical device that transfers electrical energy 
+      from one circuit to another using electromagnetic induction.
+    </div>
   </div>
+  <div class="footer">Slide 2</div>
 </div>
 
+<!-- Slide 3 -->
 <div class="slide">
-  <h1>Auto Transformer</h1>
-  <p>Single winding transformer</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Autotransformer.svg">
+  <div>
+    <div class="title">Transformer on No Load</div>
+    <div class="content">
+      Secondary winding is open.<br>
+      Only no-load current flows in primary.
+      <br><br>
+      I₀ = Iₘ + Iw
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Transformer_no_load.svg">
+  </div>
+  <div class="footer">Slide 3</div>
 </div>
 
+<!-- Slide 4 -->
 <div class="slide">
-  <h1>Copper Saving</h1>
-  <p>(1 − V₂/V₁) × 100%</p>
+  <div>
+    <div class="title">No Load Losses</div>
+    <div class="content">
+      • Hysteresis Loss<br>
+      • Eddy Current Loss<br><br>
+      Copper loss is negligible.
+    </div>
+  </div>
+  <div class="footer">Slide 4</div>
 </div>
 
+<!-- Slide 5 -->
+<div class="slide">
+  <div>
+    <div class="title">Transformer on Load</div>
+    <div class="content">
+      Load is connected to secondary.<br>
+      Current flows in both windings.<br><br>
+      Power is transferred to load.
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Transformer_on_load.svg">
+  </div>
+  <div class="footer">Slide 5</div>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+  <div>
+    <div class="title">Current Relation</div>
+    <div class="content">
+      I₁ / I₂ = N₂ / N₁
+    </div>
+  </div>
+  <div class="footer">Slide 6</div>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide">
+  <div>
+    <div class="title">Losses on Load</div>
+    <div class="content">
+      Total Loss = Core Loss + Copper Loss<br><br>
+      Copper loss increases with load.
+    </div>
+  </div>
+  <div class="footer">Slide 7</div>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide">
+  <div>
+    <div class="title">Auto Transformer</div>
+    <div class="content">
+      Uses a single winding.<br>
+      Part of winding is common.<br><br>
+      More efficient and economical.
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Autotransformer.svg">
+  </div>
+  <div class="footer">Slide 8</div>
+</div>
+
+<!-- Slide 9 -->
+<div class="slide">
+  <div>
+    <div class="title">Copper Saving</div>
+    <div class="content">
+      Copper Saving = (1 − V₂/V₁) × 100%
+    </div>
+  </div>
+  <div class="footer">Slide 9</div>
+</div>
+
+<!-- Slide 10 -->
+<div class="slide">
+  <div>
+    <div class="title">Conclusion</div>
+    <div class="content">
+      • No load → only core losses<br>
+      • Load → power transfer<br>
+      • Auto transformer → saves copper
+    </div>
+  </div>
+  <div class="footer">Thank You</div>
+</div>
+
+<!-- Navigation -->
 <div class="nav">
-  <button onclick="prevSlide()">⬅ Prev</button>
-  <button onclick="nextSlide()">Next ➡</button>
+  <button onclick="prev()">⬅ Prev</button>
+  <button onclick="next()">Next ➡</button>
 </div>
 
 <script>
 let slides = document.querySelectorAll(".slide");
-let index = 0;
-let sound = document.getElementById("clickSound");
+let i = 0;
 
-function showSlide(i) {
-  slides.forEach((s, idx) => {
-    s.style.display = (idx === i) ? "flex" : "none";
+function showSlide(x){
+  slides.forEach((s,idx)=>{
+    s.style.display = (idx===x)?"flex":"none";
   });
-
-  document.getElementById("progress").style.width =
-    ((i+1)/slides.length)*100 + "%";
 }
 
-function nextSlide() {
-  if(index < slides.length-1) index++;
-  sound.play();
-  showSlide(index);
+function next(){
+  if(i<slides.length-1) i++;
+  showSlide(i);
 }
 
-function prevSlide() {
-  if(index > 0) index--;
-  sound.play();
-  showSlide(index);
+function prev(){
+  if(i>0) i--;
+  showSlide(i);
 }
 
-showSlide(index);
+/* Keyboard control */
+document.addEventListener("keydown", e=>{
+  if(e.key==="ArrowRight") next();
+  if(e.key==="ArrowLeft") prev();
+});
+
+showSlide(i);
 </script>
 
 </body>
